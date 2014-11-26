@@ -8,6 +8,24 @@ TODO:
 - [] refactor all three code examples (and figure out how they work)
 - [] update and experiment
 
+_________________________
+
+####Features:
+- silouette as polygon
+- polygon silouette defines flow field mask
+- polygon silouette edges detection
+- real-time interaction with 2D geometry 
+
+####Future Features:
+- replace background with video feed
+	- place the incoming image at the beginning of draw instead of background()
+- replace the silouette with video feed:
+	- use masking
+	- use GL Graphics library, GLSL shaders to maintain good framerate
+	- see example:
+		- GLGraphics > Textures > Dynamic Mask
+
+___________________________
 
 
 Dependencies:  
@@ -49,3 +67,4 @@ Sources:
 =========
 - [Kinect Physics Tutorials for Processing](http://www.creativeapplications.net/processing/kinect-physics-tutorial-for-processing/) - by Ammon Owed
 - [SimpleOpenNI](https://code.google.com/p/simple-openni/wiki/Installation) - OpenNI library for Processing
+- [Geometry, Textures & Shaders with Processing - Tutorial](http://www.creativeapplications.net/processing/geometry-textures-shaders-processing-tutorial/)
