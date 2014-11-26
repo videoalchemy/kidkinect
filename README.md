@@ -2,6 +2,11 @@
 >Realtime interaction with physics simulations in a child's play-space
 ________________________
 
+TODO:
+- [] verify Kinect using Silhouette example
+- [] Install SimpleOpenNI on chaote laptop
+- [] refactor all three code examples (and figure out how they work)
+- [] update and experiment
 
 
 
