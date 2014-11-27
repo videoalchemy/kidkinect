@@ -38,7 +38,8 @@ void setup() {
   // initialize SimpleOpenNI object
   context = new SimpleOpenNI(this);
   if (!context.enableScene()) {
-    // if context.enableScene() returns false
+    // if context.enableScene() (simpleOpen 0.27) returns false
+    // if context.enableUser() (simpleOpenNI 1.96)
     // then the Kinect is not working correctly
     // make sure the green light is blinking
     println("Kinect not connected!");
@@ -62,12 +63,14 @@ void setup() {
 void draw() {
   // fading background
   noStroke();
-  fill(bgColor, 65);
+  //fill(bgColor, 65);
+  fill(0, 65);
   rect(0, 0, width, height);
   // update the SimpleOpenNI object
   context.update();
   // put the image into a PImage
   cam = context.sceneImage().get();
+  // cam = context.userImage().get();  //<-- SimpleOpenNI-1.96
   // copy the image into the smaller blob image
   blobs.copy(cam, 0, 0, cam.width, cam.height, 0, 0, blobs.width, blobs.height);
   // blur the blob image
