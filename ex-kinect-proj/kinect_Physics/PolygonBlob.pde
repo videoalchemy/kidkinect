@@ -27,7 +27,7 @@ class PolygonBlob extends Polygon2D {
             // ----------------------------------------------------------
             // ----DEGBUG:  CHANGE THE '15' distance to '25' [NOPE] ------------
             // Issue: Vertices of Chain shape are too close together ----
-            if (dn > 15 || dp > 15) {
+            if (dn > 15 || dp > 15) {   // DEBUG::  change to 25 from 15
               if (contour.size() > 0) {
                 contour.add(new PVector(eB.x*kinectWidth, eB.y*kinectHeight));
                 contours.add(contour);
@@ -115,11 +115,14 @@ class PolygonBlob extends Polygon2D {
        }
        //------------------------------------------------------------------*/
       // Variation 1: increase forLoop increment from i++ to i+2 [NOPE]
-      // Variation 3: 
-      Vec2[] verts = new Vec2[getNumPoints()];
-      for (int i=0; i<getNumPoints (); i++) {  // <----------
-        Vec2D v = vertices.get(i);
-        verts[i] = box2d.coordPixelsToWorld(v.x, v.y);
+      // Variation 2: use every 2 or every 4 points in the silhouette to create the body
+      Vec2[] verts = new Vec2[getNumPoints()]; // var2: Added '/2'
+      for (int i=0; i<getNumPoints(); i++) {  // var2: added '/2' var1: changed to i+=2
+        // DEBUG:  try creating a verticy on every 3rd index
+        //if (i % 3 == 0) {
+          Vec2D v = vertices.get(i);  // var2: added '*2'
+          verts[i] = box2d.coordPixelsToWorld(v.x, v.y);
+        
       }
 
 
